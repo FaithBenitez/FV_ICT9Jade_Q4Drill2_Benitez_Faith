@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Q4 Drill 2</title>
+</head>
 
+<style>
+    body{
+        background-image: url(https://i.pinimg.com/originals/db/9f/1c/db9f1c2c296ab041cbc7cbe3a0f6f3e8.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        font-family: "Fira Sans", sans-serif;
+    
+   
+
+    }
+</style>
+<script>
+function calculateHeatIndex(){
+
+let temperature, humidity, heatIndex, status;
+
+temperature = parseFloat(document.getElementById("temperature").value);
+humidity = parseFloat(document.getElementById("humidity").value);
+
+heatIndex = temperature + (0.33 * humidity) - 4;
+
+switch (true){
+
+case (heatIndex <= 27):
+    status = "This is a comfortable and cool temperature.";
+    break;
+
+case (heatIndex <= 32):
+    status = "This is a warm temperature.";
+    break;
+
+case (heatIndex <= 37):
+    status = "This is a hot temperature.";
+    break;
+
+case (heatIndex <= 41):
+    status = " Careful, This temperature is very hot.";
+    break;
+
+case (heatIndex >= 42):
+    status = "Caution, This temperature is extreme heat / danger.";
+    break;
+
+default:
+    status = "Please double check values.";
+}
+
+alert("Heat Index: " + heatIndex.toFixed(1) + "°C\nStatus: " + status);
+}
+</script>
+
+<body>
+    <center>
+    <div class="container" style="width: 900px; height: 500px; background-color: rgb(33, 33, 33); ; margin-top: 200px; border-radius: 20px;">
+<h1 style="padding-top: 30px; color: rgb(226, 189, 3);">Heat Index Checker </h1>
+<details>
+    <summary style="text-align: center; color: #fff;">
+        <i>Instructions</i>
+    </summary>
+
+    <p style="text-align: center;  color: #fff;">
+        Please input the <b>temperature ℃</b> and <b>humidity %</b>to check the Heat Index and its status
+    </p>
+</details>
+
+<br>
+
+  <form onsubmit="event.preventDefault(); calculateHeatIndex();">
+                
+                <div class="col-sm-9">
+                <label style="font-size: 20px; color: rgb(226, 189, 3);">Degree in °C</label>
+                <input type="number" id="temperature" class="form-control" placeholder="Input degree value...">
+
+                <br>
+
+                <label style="font-size: 20px; color: rgb(226, 189, 3);">Humidity in %</label>
+                <input type="number" id="humidity" class="form-control" placeholder="Input percentage value...">
+
+                <br>
+
+                <button type="submit" class="btn btn-warning">Check Status</button>
+
+</form>
+
+</div>
+
+</center>
+
+
+</div>
+</body>
+</html>
